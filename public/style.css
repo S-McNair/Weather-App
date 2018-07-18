@@ -1,0 +1,50 @@
+.title-box {
+  text-align: center;
+}
+
+.nav-text {
+  padding-right: 10;
+}
+
+.nav {
+  color:red;
+}
+
+.card-header {
+  background-color: rgb(151, 248, 255);
+  color: teal;
+  font-weight: bold;
+}
+
+.cityInfo {
+  text-align: center;
+}
+
+.style13 {
+	height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+.infoDisplay {
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+
+.infoLabel {
+  color:black;
+  font-weight: bold;
+}
+
+.historyCity {
+  text-align: left;
+}
+
+.searchTime {
+  text-align: center;
+}
+
+.infoCard {
+  border: transparent;
+}
