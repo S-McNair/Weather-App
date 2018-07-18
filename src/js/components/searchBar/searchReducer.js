@@ -1,13 +1,14 @@
 const defaultState = {
   apiName: '',
-  // tempF: '',
-  // pressure: '',
-  // humidity: '',
-  // lowTemp: '',
-  // highTemp: '',
-  // windSpeed: '',
-  // weatherReport: '',
-  // weatherReportDetailed: '',
+  tempF: '',
+  latLong: '',
+  pressure: '',
+  humidity: '',
+  lowTempF: '',
+  highTempF: '',
+  windSpeed: '',
+  weatherReport: '',
+  weatherDetails: '',
   searchHistory: []
 };
 
@@ -23,21 +24,31 @@ export default function searchReducer(state = defaultState, action) {
     }
 
     case 'GET_WEATHER': {
-      // const { apiName, tempF,pressure, humidity, lowTempF, highTempF, windSpeed, weatherReport, weatherReportDetailed } = action.payload;
-      const { apiName, tempF, pressure, humidity } = action.payload;
+      const {
+        apiName,
+        tempF,
+        latLong,
+        pressure,
+        humidity,
+        lowTempF,
+        highTempF,
+        windSpeed,
+        weatherReport,
+        weatherDetails } = action.payload;
       return {
         apiName,
-        // tempF: '',
-        // pressure: '',
-        // humidity: '',
-        // lowTemp: '',
-        // highTemp: '',
-        // windSpeed: '',
-        // weatherReport: '',
-        // weatherReportDetailed: '',
+        tempF,
+        latLong,
+        pressure,
+        humidity,
+        lowTempF,
+        highTempF,
+        windSpeed,
+        weatherReport,
+        weatherDetails,
         searchHistory: [
           ...state.searchHistory,
-          { apiName, tempF, pressure, humidity }
+          { apiName }
         ]
       };
     }

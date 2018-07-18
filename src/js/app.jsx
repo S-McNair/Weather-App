@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from './components/searchBar/index';
-import CityInfo from './components/cityInfo/cityInfo';
+import CityInfo from './components/cityInfo/index';
 import SearchHistory from './components/searchHistory/searchHistory';
 
 export default class App extends React.Component {

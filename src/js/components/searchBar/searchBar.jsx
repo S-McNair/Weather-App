@@ -11,6 +11,7 @@ export default class SearchBar extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleTab = this.handleTab.bind(this);
   }
 
   handleSearch(e) {
@@ -31,6 +32,9 @@ export default class SearchBar extends React.Component {
         const apiName = res.data.name;
         const tempK = res.data.main.temp;
         const tempF = (9 / 5 * (tempK - 273) + 32).toFixed(2) + '°F';
+        const lat = res.data.coord.lat.toString();
+        const long = res.data.coord.lon.toString();
+        const latLong = 'Lat/Long: ' + (lat + ', ' + long);
         const pressure = res.data.main.pressure;
         const humidity = res.data.main.humidity.toString() + '%';
         const lowTempK = res.data.main.temp_min;
@@ -38,31 +42,69 @@ export default class SearchBar extends React.Component {
         const highTempK = res.data.main.temp_max;
         const highTempF = (9 / 5 * (highTempK - 273) + 32).toFixed(2) + '°F';
         const windSpeed = res.data.wind.speed + 'mph';
-        const weatherReport = res.data.weather.main;
-        const weatherReportDetailed = res.data.weather.description;
+        const weatherReport = res.data.weather[0].icon;
+        const weatherDetails = res.data.weather[0].description;
         // 9/5 * (temp - 273) + 32 converts Kelvin to Farenheit
-
-        // console.log(apiName, tempF);
-        // console.log(apiCall);
-        // dispatch(getWeather(apiName, tempF));
+        // console.log(data, weatherReport);
         dispatch(getWeather(
           apiName,
           tempF,
+          latLong,
           pressure,
           humidity,
           lowTempF,
           highTempF,
           windSpeed,
           weatherReport,
-          weatherReportDetailed
+          weatherDetails
         ));
       })
       .catch((error) => {
         console.log(error);
       });
-    // console.log(dispatch(getWeather(apiName, tempF, pressure, humidity, lowTempF, highTempF, windSpeed, weatherReport, weatherReportDetailed)));
-    // dispatch(getWeather(apiName, tempF, pressure, humidity, lowTempF, highTempF, windSpeed, weatherReport, weatherReportDetailed));
-    // dispatch(getWeather(cityName, apiName, tempF, data));
+  }
+
+  handleTab(e) {
+    const { dispatch } = this.props;
+    const cityName = e.target;
+    console.log(cityName);
+    const apiCall = (apiString + cityName + apiKey);
+    axios.get(apiCall)
+    .then((res) => {
+      // const data = res.data;
+      const apiName = res.data.name;
+      const tempK = res.data.main.temp;
+      const tempF = (9 / 5 * (tempK - 273) + 32).toFixed(2) + '°F';
+      const lat = res.data.coord.lat.toString();
+      const long = res.data.coord.lon.toString();
+      const latLong = 'Lat/Long: ' + (lat + ', ' + long);
+      const pressure = res.data.main.pressure;
+      const humidity = res.data.main.humidity.toString() + '%';
+      const lowTempK = res.data.main.temp_min;
+      const lowTempF = (9 / 5 * (lowTempK - 273) + 32).toFixed(2) + '°F';
+      const highTempK = res.data.main.temp_max;
+      const highTempF = (9 / 5 * (highTempK - 273) + 32).toFixed(2) + '°F';
+      const windSpeed = res.data.wind.speed + 'mph';
+      const weatherReport = res.data.weather[0].icon;
+      const weatherDetails = res.data.weather[0].description;
+      // 9/5 * (temp - 273) + 32 converts Kelvin to Farenheit
+      // console.log(data, weatherReport);
+      dispatch(getWeather(
+        apiName,
+        tempF,
+        latLong,
+        pressure,
+        humidity,
+        lowTempF,
+        highTempF,
+        windSpeed,
+        weatherReport,
+        weatherDetails
+      ));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   render() {
@@ -73,10 +115,10 @@ export default class SearchBar extends React.Component {
       <div id='enclosing-tag' >
 
         <div className='d-flex flex-row'>
-          <div className={searchTab}><a className={tabLink} href='#' >San Diego</a></div>
-          <div className={searchTab}><a className={tabLink} href='#' >Copenhagen</a></div>
-          <div className={searchTab}><a className={tabLink} href='#' >Budapest</a></div>
-          <div className={searchTab}><a className={tabLink} href='#' >Peabody</a></div>
+          <div className={searchTab}><a className={tabLink} href='#' value={ 'San Diego' } onClick={ this.handleTab } >San Diego</a></div>
+          <div className={searchTab}><a className={tabLink} href='#' value={ 'Copenhagen' } onClick={ this.handleTab } >Copenhagen</a></div>
+          <div className={searchTab}><a className={tabLink} href='#' value={ 'Budapest' } onClick={ this.handleTab } >Budapest</a></div>
+          <div className={searchTab}><a className={tabLink} href='#' value={ 'Peabody' } onClick={ this.handleTab } >Peabody</a></div>
         </div>
 
         <div className='input-group' >
