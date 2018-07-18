@@ -66,7 +66,7 @@ export default class SearchBar extends React.Component {
 
   handleTab(e) {
     const { dispatch } = this.props;
-    const cityName = e.target;
+    const cityName = e.target.getAttribute('value');
     console.log(cityName);
     const apiCall = (apiString + cityName + apiKey);
     axios.get(apiCall)
@@ -115,10 +115,10 @@ export default class SearchBar extends React.Component {
       <div id='enclosing-tag' >
 
         <div className='d-flex flex-row'>
-          <div className={searchTab}><a className={tabLink} href='#' value={ 'San Diego' } onClick={ this.handleTab } >San Diego</a></div>
-          <div className={searchTab}><a className={tabLink} href='#' value={ 'Copenhagen' } onClick={ this.handleTab } >Copenhagen</a></div>
-          <div className={searchTab}><a className={tabLink} href='#' value={ 'Budapest' } onClick={ this.handleTab } >Budapest</a></div>
-          <div className={searchTab}><a className={tabLink} href='#' value={ 'Peabody' } onClick={ this.handleTab } >Peabody</a></div>
+          <div id={ 'San Diego' } className={searchTab}><a className={tabLink} href='#' value={ 'San Diego' } onClick={ this.handleTab } >San Diego</a></div>
+          <div id={ 'Copenhagen' } className={searchTab}><a className={tabLink} href='#' value={ 'Copenhagen' } onClick={ this.handleTab } >Copenhagen</a></div>
+          <div id={ 'Budapest' } className={searchTab}><a className={tabLink} href='#' value={ 'Budapest' } onClick={ this.handleTab } >Budapest</a></div>
+          <div id={ 'Peabody' } className={searchTab}><a className={tabLink} href='#' value={ 'Peabody' } onClick={ this.handleTab } >Peabody</a></div>
         </div>
 
         <div className='input-group' >
