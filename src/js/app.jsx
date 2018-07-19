@@ -8,7 +8,7 @@ export default class App extends React.Component {
     return (
       <div className='container-fluid'>
         <div className='title-box jumbotron view'>
-          <h1>Origin Weather Application</h1><br />
+          <h1>Weather Application</h1><br />
           <h6>Always know if you'll need an umbrella!</h6>
         </div>
         <div id='search-bar' className='col-12 view' >

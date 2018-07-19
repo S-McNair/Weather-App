@@ -25,22 +25,6 @@
   text-align: center;
 }
 
-.clouds {
-  background-image: ;
-}
-
-.sun {
-  background-image: ;
-}
-
-.rain {
-  background-image: ;
-}
-
-.wind {
-  background-image: ;
-}
-
 .style13 {
 	height: 10px;
 	border: 0;
@@ -68,4 +52,13 @@
 
 .infoCard {
   border: transparent;
+}
+
+.searchHistory {
+  /* font-weight: bold; */
+}
+
+.historyCity {
+  font-size: 125%;
+  text-align: left;
 }

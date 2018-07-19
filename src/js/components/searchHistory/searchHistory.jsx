@@ -20,7 +20,7 @@ export default class SearchHistory extends React.Component {
 
                 {
                   searchHistory.reverse().map(history => (
-                    <tr className=''>
+                    <tr className='searchHistory'>
                       <td className='historyCity' >{history.apiName}</td>
                       <td className='spacer' ></td>
                       <td className='searchTime' >{ history.dateMDY }<br />{ history.time }</td>
