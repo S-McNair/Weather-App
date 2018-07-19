@@ -1,3 +1,8 @@
+.bg {
+  background-image: url('/rainbow_background.png');
+  background-size: 100%;
+}
+
 .title-box {
   text-align: center;
 }
@@ -6,8 +11,8 @@
   padding-right: 10;
 }
 
-.nav {
-  color:red;
+.view {
+  opacity: 0.7;
 }
 
 .card-header {
@@ -18,6 +23,22 @@
 
 .cityInfo {
   text-align: center;
+}
+
+.clouds {
+  background-image: ;
+}
+
+.sun {
+  background-image: ;
+}
+
+.rain {
+  background-image: ;
+}
+
+.wind {
+  background-image: ;
 }
 
 .style13 {

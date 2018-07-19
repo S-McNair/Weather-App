@@ -14,7 +14,7 @@ export default class SearchHistory extends React.Component {
 
         <div className='card card-default' >
           <div className='card-header' >Search History</div>
-          <div className='card-body' >
+          <div className='card-body view' >
             <table id='searchHistory' className='table table-striped table-hover' >
               <tbody >
 

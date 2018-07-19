@@ -11,7 +11,7 @@ function mapStoreToProps(store) {
     lowTempF: store.cityInput.lowTempF,
     highTempF: store.cityInput.highTempF,
     windSpeed: store.cityInput.windSpeed,
-    weatherReport: store.cityInput.weatherReport,
+    weatherImage: store.cityInput.weatherImage,
     weatherDetails: store.cityInput.weatherDetails
   };
 }

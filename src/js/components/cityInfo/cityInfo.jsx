@@ -15,16 +15,16 @@ export default class CityInfo extends React.Component {
       lowTempF,
       highTempF,
       windSpeed,
-      weatherReport,
+      weatherImage,
       weatherDetails } = this.props;
-    //  console.log(this.props);
+
     return (
       <div id='enclosing-tag' >
 
         <div className='card card-default' >
           <div className='card-header' >City Information</div>
-          <div className='card-body cityInfo' ><br />
-            <h1 className='cityName' >{ apiName } </h1>
+          <div className='card-body cityInfo view'><br />
+            <h1 className='cityName' ><img src={ weatherImage } />{ apiName } </h1>
             <h7 className='latLong'>{ latLong }</h7><br />
             <p id='weatherDetails' >{ weatherDetails }</p>
             <br /><hr className='style13' /><br />

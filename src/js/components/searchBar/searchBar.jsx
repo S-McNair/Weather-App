@@ -52,7 +52,8 @@ export default class SearchBar extends React.Component {
         const highTempK = res.data.main.temp_max;
         const highTempF = (9 / 5 * (highTempK - 273) + 32).toFixed(2) + '°F';
         const windSpeed = res.data.wind.speed + 'mph';
-        const weatherReport = res.data.weather[0].icon;
+        const iconID = res.data.weather[0].icon;
+        const weatherImage = 'http://openweathermap.org/img/w/' + iconID + '.png';
         const weatherDetails = res.data.weather[0].description;
         // 9/5 * (temp - 273) + 32 converts Kelvin to Farenheit
         // console.log(todayArray);
@@ -65,7 +66,7 @@ export default class SearchBar extends React.Component {
           lowTempF,
           highTempF,
           windSpeed,
-          weatherReport,
+          weatherImage,
           weatherDetails,
           dateMDY,
           time
@@ -113,7 +114,8 @@ export default class SearchBar extends React.Component {
         const highTempK = res.data.main.temp_max;
         const highTempF = (9 / 5 * (highTempK - 273) + 32).toFixed(2) + '°F';
         const windSpeed = res.data.wind.speed + 'mph';
-        const weatherReport = res.data.weather[0].icon;
+        const iconID = res.data.weather[0].icon;
+        const weatherImage = 'http://openweathermap.org/img/w/' + iconID + '.png';
         const weatherDetails = res.data.weather[0].description;
         // 9/5 * (temp - 273) + 32 converts Kelvin to Farenheit
         dispatch(getWeather(
@@ -125,7 +127,7 @@ export default class SearchBar extends React.Component {
           lowTempF,
           highTempF,
           windSpeed,
-          weatherReport,
+          weatherImage,
           weatherDetails,
           dateMDY,
           time

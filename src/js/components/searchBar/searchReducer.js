@@ -1,5 +1,5 @@
 const defaultState = {
-  apiName: '',
+  apiName: 'City Name',
   tempF: '',
   latLong: '',
   pressure: '',
@@ -7,7 +7,7 @@ const defaultState = {
   lowTempF: '',
   highTempF: '',
   windSpeed: '',
-  weatherReport: '',
+  weatherImage: 'http://openweathermap.org/img/w/01d.png',
   weatherDetails: '',
   searchHistory: []
 };
@@ -33,7 +33,7 @@ export default function searchReducer(state = defaultState, action) {
         lowTempF,
         highTempF,
         windSpeed,
-        weatherReport,
+        weatherImage,
         weatherDetails,
         dateMDY,
         time } = action.payload;
@@ -46,7 +46,7 @@ export default function searchReducer(state = defaultState, action) {
         lowTempF,
         highTempF,
         windSpeed,
-        weatherReport,
+        weatherImage,
         weatherDetails,
         searchHistory: [
           ...state.searchHistory.reverse(),
