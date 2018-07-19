@@ -6,7 +6,8 @@ export default class CityInfo extends React.Component {
   }
 
   render() {
-    const { apiName,
+    const {
+      apiName,
       tempF,
       latLong,
       pressure,

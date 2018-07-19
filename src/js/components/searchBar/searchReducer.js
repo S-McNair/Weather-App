@@ -34,7 +34,9 @@ export default function searchReducer(state = defaultState, action) {
         highTempF,
         windSpeed,
         weatherReport,
-        weatherDetails } = action.payload;
+        weatherDetails,
+        dateMDY,
+        time } = action.payload;
       return {
         apiName,
         tempF,
@@ -47,8 +49,8 @@ export default function searchReducer(state = defaultState, action) {
         weatherReport,
         weatherDetails,
         searchHistory: [
-          ...state.searchHistory,
-          { apiName }
+          ...state.searchHistory.reverse(),
+          { apiName, dateMDY, time }
         ]
       };
     }

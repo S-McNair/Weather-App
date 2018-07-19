@@ -6,6 +6,9 @@ export default class SearchHistory extends React.Component {
   }
 
   render() {
+
+    const searchHistory = this.props.searchHistory;
+
     return (
       <div id='enclosing-tag' >
 
@@ -15,23 +18,16 @@ export default class SearchHistory extends React.Component {
             <table id='searchHistory' className='table table-striped table-hover' >
               <tbody >
 
-                <tr className=''>
-                  <td className='historyCity' >San Diego</td>
-                  <td className='spacer' ></td>
-                  <td className='searchTime' >07/16/2018<br />11:54:12</td>
-                </tr>
+                {
+                  searchHistory.reverse().map(history => (
+                    <tr className=''>
+                      <td className='historyCity' >{history.apiName}</td>
+                      <td className='spacer' ></td>
+                      <td className='searchTime' >{ history.dateMDY }<br />{ history.time }</td>
+                    </tr>
+                  ))
 
-                <tr className=''>
-                  <td className='historyCity' >Hong Kong</td>
-                  <td className='spacer' ></td>
-                  <td className='searchTime' >07/12/2018<br />13:21:46</td>
-                </tr>
-
-                <tr className=''>
-                  <td className='historyCity' >Ubud</td>
-                  <td className='spacer' ></td>
-                  <td className='searchTime' >07/08/2018<br />04:52:29</td>
-                </tr>
+                }
 
               </tbody>
             </table>

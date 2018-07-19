@@ -20,7 +20,10 @@ export function getWeather(
   highTempF,
   windSpeed,
   weatherReport,
-  weatherDetails
+  weatherDetails,
+  dateMDY,
+  time,
+  searchHistory
 ) {
   return {
     type: 'GET_WEATHER',
@@ -34,7 +37,10 @@ export function getWeather(
       highTempF,
       windSpeed,
       weatherReport,
-      weatherDetails
+      weatherDetails,
+      dateMDY,
+      time,
+      searchHistory
     }
   };
 }
