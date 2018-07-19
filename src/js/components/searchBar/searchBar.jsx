@@ -2,7 +2,7 @@ import React from 'react';
 import { getWeather, searchCity } from './searchActions';
 
 const axios = require('axios');
-const apiString = 'http://api.openweathermap.org/data/2.5/weather?q=';
+const apiString = 'https://api.openweathermap.org/data/2.5/weather?q=';
 const apiKey = '&id=524901&APPID=b59d7a8d0632497f54ec5a572369bcd7';
 
 export default class SearchBar extends React.Component {
