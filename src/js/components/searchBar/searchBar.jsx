@@ -17,7 +17,6 @@ export default class SearchBar extends React.Component {
   handleSearch(e) {
     const { dispatch } = this.props;
     const { value } = e.target;
-    // console.log(this.props);
     dispatch(searchCity(value));
   }
 
@@ -56,7 +55,6 @@ export default class SearchBar extends React.Component {
         const weatherImage = 'http://openweathermap.org/img/w/' + iconID + '.png';
         const weatherDetails = res.data.weather[0].description;
         // 9/5 * (temp - 273) + 32 converts Kelvin to Farenheit
-        // console.log(todayArray);
         dispatch(getWeather(
           apiName,
           tempF,
