@@ -52,7 +52,7 @@ export default class SearchBar extends React.Component {
         const highTempF = (9 / 5 * (highTempK - 273) + 32).toFixed(2) + '°F';
         const windSpeed = res.data.wind.speed + 'mph';
         const iconID = res.data.weather[0].icon;
-        const weatherImage = 'http://openweathermap.org/img/w/' + iconID + '.png';
+        const weatherImage = 'https://openweathermap.org/img/w/' + iconID + '.png';
         const weatherDetails = res.data.weather[0].description;
         // 9/5 * (temp - 273) + 32 converts Kelvin to Farenheit
         dispatch(getWeather(
