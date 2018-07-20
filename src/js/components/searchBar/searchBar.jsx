@@ -22,14 +22,20 @@ export default class SearchBar extends React.Component {
     document.getElementById('searchBar').focus();
     axios.get(apiCall)
       .then((res) => {
+
         const year = new Date().getFullYear();
-        const month = new Date().getMonth() + 1;
-        const day = new Date().getDate();
+        const monthRaw = new Date().getMonth() + 1;
+        const month = monthRaw < 10 ? '0' + monthRaw : monthRaw;
+        const dayRaw = new Date().getDate();
+        const day = dayRaw < 10 ? '0' + dayRaw : dayRaw;
         const dateMDY = (month + '/' + day + '/' + year);
 
-        const hour = new Date().getHours();
-        const minute = new Date().getMinutes();
-        const seconds = new Date().getSeconds();
+        const hourRaw = new Date().getHours();
+        const hour = hourRaw < 10 ? '0' + hourRaw : hourRaw;
+        const minRaw = new Date().getMinutes()
+        const minute = minRaw < 10 ? '0' + minRaw : minRaw;
+        const secRaw = new Date().getSeconds();
+        const seconds = secRaw < 10 ? '0' + secRaw : secRaw;
         const time = (hour + ':' + minute + ':' + seconds);
 
         const apiName = res.data.name;
@@ -84,13 +90,18 @@ export default class SearchBar extends React.Component {
       .then((res) => {
 
         const year = new Date().getFullYear();
-        const month = new Date().getMonth() + 1;
-        const day = new Date().getDate();
+        const monthRaw = new Date().getMonth() + 1;
+        const month = monthRaw < 10 ? '0' + monthRaw : monthRaw;
+        const dayRaw = new Date().getDate();
+        const day = dayRaw < 10 ? '0' + dayRaw : dayRaw;
         const dateMDY = (month + '/' + day + '/' + year);
 
-        const hour = new Date().getHours();
-        const minute = new Date().getMinutes();
-        const seconds = new Date().getSeconds();
+        const hourRaw = new Date().getHours();
+        const hour = hourRaw < 10 ? '0' + hourRaw : hourRaw;
+        const minRaw = new Date().getMinutes()
+        const minute = minRaw < 10 ? '0' + minRaw : minRaw;
+        const secRaw = new Date().getSeconds();
+        const seconds = secRaw < 10 ? '0' + secRaw : secRaw;
         const time = (hour + ':' + minute + ':' + seconds);
 
         const apiName = res.data.name;

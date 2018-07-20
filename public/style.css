@@ -1,10 +1,15 @@
 .bg {
   background-image: url('/rainbow_background.png');
-  background-size: 100%;
+  background-size: 120%;
 }
 
 .title-box {
   text-align: center;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.jumbotron{
+  opacity: 50%;
 }
 
 .nav-text {
