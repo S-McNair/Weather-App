@@ -14,6 +14,61 @@ export default class SearchBar extends React.Component {
     this.handleTab = this.handleTab.bind(this);
   }
 
+  componentDidMount() {
+    const { dispatch } = this.props;
+    const defaultCity = 'San Diego';
+    const apiCall = (apiString + defaultCity + apiKey);
+    console.log(apiCall);
+    document.getElementById('searchBar').focus();
+    axios.get(apiCall)
+      .then((res) => {
+        const year = new Date().getFullYear();
+        const month = new Date().getMonth() + 1;
+        const day = new Date().getDate();
+        const dateMDY = (month + '/' + day + '/' + year);
+
+        const hour = new Date().getHours();
+        const minute = new Date().getMinutes();
+        const seconds = new Date().getSeconds();
+        const time = (hour + ':' + minute + ':' + seconds);
+
+        const apiName = res.data.name;
+        const tempK = res.data.main.temp;
+        const tempF = (9 / 5 * (tempK - 273) + 32).toFixed(2) + '°F';
+        const lat = res.data.coord.lat.toString();
+        const long = res.data.coord.lon.toString();
+        const latLong = 'Lat/Long: ' + (lat + ', ' + long);
+        const pressure = res.data.main.pressure;
+        const humidity = res.data.main.humidity.toString() + '%';
+        const lowTempK = res.data.main.temp_min;
+        const lowTempF = (9 / 5 * (lowTempK - 273) + 32).toFixed(2) + '°F';
+        const highTempK = res.data.main.temp_max;
+        const highTempF = (9 / 5 * (highTempK - 273) + 32).toFixed(2) + '°F';
+        const windSpeed = res.data.wind.speed + 'mph';
+        const iconID = res.data.weather[0].icon;
+        const weatherImage = 'https://openweathermap.org/img/w/' + iconID + '.png';
+        const weatherDetails = res.data.weather[0].description;
+        // 9/5 * (temp - 273) + 32 converts Kelvin to Farenheit
+        dispatch(getWeather(
+          apiName,
+          tempF,
+          latLong,
+          pressure,
+          humidity,
+          lowTempF,
+          highTempF,
+          windSpeed,
+          weatherImage,
+          weatherDetails,
+          dateMDY,
+          time
+        ));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   handleSearch(e) {
     const { dispatch } = this.props;
     const { value } = e.target;
